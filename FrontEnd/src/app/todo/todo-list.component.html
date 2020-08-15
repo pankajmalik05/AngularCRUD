@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <h4 style="float: right;">Welcome {{ username }}</h4>
+    <div class="col-md-6 col-md-offset-3">
+      <div class="todolist not-done">
+        <div class="alert alert-success" role="alert" *ngIf="message">
+          {{ message }}
+        </div>
+        <h1>Todos</h1>
+        <ul id="sortable" class="list-unstyled">
+          <app-todo
+            class="todo"
+            *ngFor="let todo of todos; let index = index"
+            [todo]="todo"
+            [index]="index"
+            (onChanged)="onChanged($event)"
+            (onChangedExecute)="onChangedExecute($event)"
+          >
+          </app-todo>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

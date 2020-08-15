@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="row">
+    <h2 style="text-align: center;">User Managment</h2>
+    <br />
+    <div class="col-md-8 col-md-offset-2">
+      <input
+        class="btn btn-primary"
+        type="button"
+        value="Add New User"
+        [routerLink]="['/user/add']"
+        style="float: right; margin-bottom: 20px;"
+      />
+      <table class="table table-bordered" style="text-align: center;">
+        <thead>
+          <tr>
+            <th style="text-align: center;">Id</th>
+            <th style="text-align: center;">Username</th>
+            <th style="text-align: center;">Email</th>
+            <th style="text-align: center;">Role</th>
+            <th style="text-align: center;">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users">
+            <th style="text-align: center;">{{ user.user_id }}</th>
+            <td>{{ user.username }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.role }}</td>
+            <td style="text-align: center; font-size: 1.1em;">
+              <div class="actions">
+                <a href="javascript:void(0)"
+                  ><i
+                    class="fa fa-pencil"
+                    aria-hidden="true"
+                    (click)="edit(user.user_id)"
+                    *ngIf="permissions.includes('update_users')"
+                  ></i
+                ></a>
+                <a href="javascript:void(0)"
+                  ><i
+                    class="fa fa-times"
+                    aria-hidden="true"
+                    (click)="remove(user.user_id)"
+                    *ngIf="permissions.includes('delete_users')"
+                  ></i
+                ></a>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

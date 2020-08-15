@@ -1,0 +1,11 @@
+<div *appshowAuthed="true">
+  <div>
+    <app-todo-list></app-todo-list>
+  </div>
+</div>
+<div *appshowAuthed="false">
+  <p class="text-center" style="color: gray;">
+    Please <a [routerLink]="['login']">Log In</a> or
+    <a [routerLink]="['register']">Sign Up</a>
+  </p>
+</div>

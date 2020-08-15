@@ -1,0 +1,23 @@
+<hr />
+<li class="ui-state-default" style="position: relative;">
+  <div (click)="updateToDO(index, todo.todo_id)" class="checkbox">
+    <label *ngIf="!todo.checked">{{ todo.name }}</label>
+    <label *ngIf="todo.checked"
+      ><del>{{ todo.name }}</del></label
+    >
+  </div>
+  <div class="actions">
+    <i
+      class="fa fa-pencil"
+      aria-hidden="true"
+      [routerLink]="['edit_todo/', todo.todo_id]"
+      *ngIf="permissions.includes('update_todos')"
+    ></i>
+    <i
+      class="fa fa-times"
+      aria-hidden="true"
+      *ngIf="permissions.includes('delete_todos')"
+      (click)="remove(index, todo.todo_id)"
+    ></i>
+  </div>
+</li>

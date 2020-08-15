@@ -1,0 +1,11 @@
+{
+  "host": "localhost",
+  "port": 8080,
+  "db": {
+    "host": "localhost",
+    "user": "root",
+    "password": "",
+    "database": "todo-app"
+  },
+  "jwtSecret": "Secret"
+}
